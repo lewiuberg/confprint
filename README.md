@@ -25,7 +25,7 @@ jupyter:
 [![GitHub issues](https://img.shields.io/github/issues-raw/lewiuberg/confprint)](https://github.com/lewiuberg/confprint/issues)
 ![GitHub last commit](https://img.shields.io/github/last-commit/lewiuberg/confprint)
 
-[![CICD](https://github.com/lewiuberg/confprint/actions/workflows/cicd.yml/badge.svg?branch=master)](https://github.com/lewiuberg/confprint/actions/workflows/cicd.yml)
+[![CICD](https://github.com/lewiuberg/confprint/actions/workflows/cicd.yml/badge.svg)](https://github.com/lewiuberg/confprint/actions/workflows/cicd.yml)
 
 Copyright 2021 [Lewi Lie Uberg](https://uberg.me/)\
 _Released under the MIT license_
@@ -116,13 +116,13 @@ p_test5("using custom frame characters\n")
 
 p_test6 = prefix_printer(prefix="test6", counter_start=1)
 p_test6("By defining a 'counter_start',")
-p_test6("a counter number will be apended")
+p_test6("a counter number will be appended")
 p_test6("to the prefix.\n")
 
 p_test1(
     """With new lines in strings the text is converted
 to multiline, then all but the first are
-indented to line up with therest.\n"""
+indented to line up with the rest.\n"""
 )
 
 p_test1(
@@ -151,7 +151,7 @@ p_done()
            
 [TEST1]: With new lines in strings the text is converted
          to multiline, then all but the first are
-         indented to line up with therest.
+         indented to line up with the rest.
          
 [TEST1]: The next example wil not be ending with a `:`, since it has no input.
          And as you can see, this is also a multiline text.
