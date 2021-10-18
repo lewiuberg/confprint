@@ -1,0 +1,98 @@
+[tool.poetry]
+name = "confprint"
+version = "0.2.3" # This is automatically set using the bumpversion tool.
+description = "Python printer configurations."
+authors = [
+    "Lewi Lie Uberg <lewi@uberg.me>",
+    "Geir Arne Hjelle <geirarne@gmail.com>"
+    ]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/lewiuberg/confprint"
+repository = "https://github.com/lewiuberg/confprint"
+documentation = "https://github.com/lewiuberg/confprint/README.md"
+keywords = ["print", "printer configurations", "prefix", "stderr"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: MacOS",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Terminals",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "7.1.2"
+
+[tool.poetry.dev-dependencies]
+peodd = "^0.2.2"  # Usage: poetry run peodd -o requirements-dev.txt
+pytest = "^6.2.5"
+pytest-cov = "^2.12.1"
+pytest-sugar = "^0.9.4"
+debugpy = "^1.4.3"
+black = "^21.9b0"
+flake8 = "^3.9.2"
+isort = "^5.9.3"
+mypy = "^0.910"
+pydocstyle = "^6.1.1"
+jupyterlab = "^3.2.0"
+jupytext = "^1.13.0"
+bump2version = "^1.0.1"
+
+[tool.poetry.scripts]
+vinc = "vinc:cli"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | tests/.*/setup.py
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 79
+float_to_top = true
+lines_between_types = 0
+lines_between_sections = 1
+lines_after_imports = 2
+force_single_line = false
+use_parentheses = true
+include_trailing_comma = true
+# May be added later: https://pycqa.github.io/isort/docs/configuration/options.html#skip-glob
+# src_paths = ["poetry", "tests"]
+# skip_glob = ["*/setup.py"]
+# filter_files = true
+# atomic = true
+# known_first_party = "poetry"
+
+[tool.pytest.ini_options]
+addopts = "-v"
+python_files = "test_*.py"
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:"
+]
