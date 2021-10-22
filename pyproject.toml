@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "confprint"
-version = "0.2.3" # This is automatically set using the bumpversion tool.
+version = "0.3.0" # This is automatically set using the bumpversion tool.
 description = "Python printer configurations."
 authors = [
     "Lewi Lie Uberg <lewi@uberg.me>",

@@ -1,18 +1,3 @@
----
-jupyter:
-  jupytext:
-    formats: ipynb,md
-    text_representation:
-      extension: .md
-      format_name: markdown
-      format_version: '1.3'
-      jupytext_version: 1.13.0
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
----
-
 <!-- ---
 jupyter:
   jupytext:
@@ -69,7 +54,7 @@ Please see [CITATION.cff](CITATION.cff) for the full citation information.
 ### APA
 
 ```apa
-Lie Uberg, L., & Hjelle, G. A. (2021). confprint (Version 0.2.3) [Computer software]. https://github.com/lewiuberg/confprint
+Lie Uberg, L., & Hjelle, G. A. (2021). confprint (Version 0.3.0) [Computer software]. https://github.com/lewiuberg/confprint
 ```
 
 ### BibTex
@@ -81,7 +66,7 @@ license = {MIT},
 month = {10},
 title = {{confprint}},
 url = {https://github.com/lewiuberg/confprint},
-version = {0.2.3},
+version = {0.3.0},
 year = {2021}
 }
 ```

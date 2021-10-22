@@ -7,7 +7,7 @@ authors:
     given-names: Lewi
   - family-names: "Hjelle"
     given-names: Geir Arne
-version: 0.2.3 # This is automatically set using the bumpversion tool.
+version: 0.3.0 # This is automatically set using the bumpversion tool.
 date-released: 2021-10-16
 repository-code: "https://github.com/lewiuberg/confprint"
 license: MIT
