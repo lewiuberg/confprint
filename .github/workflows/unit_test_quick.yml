@@ -3,11 +3,11 @@ name: unit_test_quick
 on:
   push:
     branches-ignore:
-      - master
+      - main
 
   pull_request:
     branches-ignore:
-      - master
+      - main
 
   workflow_dispatch: # Enable workflow to be run manually.
 

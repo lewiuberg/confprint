@@ -1,13 +1,9 @@
 name: unit_test_full
 
 on:
-  push:
-    branches:
-      - master
-
   pull_request:
     branches:
-      - master
+      - main
 
   workflow_dispatch: # Enable workflow to be run manually.
 

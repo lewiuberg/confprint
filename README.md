@@ -166,7 +166,7 @@ p_done()
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/lewiuberg/confprint/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/lewiuberg/confprint/blob/main/LICENSE) file for details
 
 ## Acknowledgments
 
