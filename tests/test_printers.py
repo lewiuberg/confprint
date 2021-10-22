@@ -173,45 +173,45 @@ def test_prefix_printer_global_counter(capsys, text_string, prefix_string):
         prefix_string,
         counter_start=0,
         global_counter=True,
-        global_redefine=True,
     )
-    pg_test10 = prefix_printer(
-        prefix_string, counter_start=10, global_counter=True
-    )
-
-    pl_test100 = prefix_printer(prefix_string, counter_start=100)
-
     pg_test0(text_string)  # counter: 0
     captured0_0 = capsys.readouterr()
     pg_test0(text_string)  # counter: 1
     captured0_1 = capsys.readouterr()
 
-    pg_test10(text_string)  # counter: 2
+    pg_test10 = prefix_printer(
+        prefix_string, counter_start=10, global_counter=True
+    )
+    pg_test10(text_string)  # counter: 10
     captured10_0 = capsys.readouterr()
-    pg_test10(text_string)  # counter: 3
+    pg_test10(text_string)  # counter: 11
     captured10_1 = capsys.readouterr()
 
+    pl_test100 = prefix_printer(prefix_string, counter_start=100)
     pl_test100(text_string)  # counter: 100
     captured100_0 = capsys.readouterr()
+    pl_test100(text_string)  # counter: 101
+    captured100_1 = capsys.readouterr()
 
-    pg_test0(text_string)  # counter: 4
-    captured0_2 = capsys.readouterr()
-
-    pg_test20 = prefix_printer(
-        prefix_string,
-        counter_start=20,
-        global_counter=True,
-        global_redefine=True,
-    )
-    pg_test20(text_string)  # counter: 4
-    captured20_0 = capsys.readouterr()
+    pl_test200 = prefix_printer(prefix_string, counter_start=200)
+    pl_test200(text_string)  # counter: 200
+    captured200_0 = capsys.readouterr()
+    pl_test200(text_string)  # counter: 201
+    captured200_1 = capsys.readouterr()
 
     assert captured0_0.out == f"[{prefix_string.upper()}:0]: {text_string}\n"
     assert captured0_1.out == f"[{prefix_string.upper()}:1]: {text_string}\n"
-    assert captured10_0.out == f"[{prefix_string.upper()}:2]: {text_string}\n"
-    assert captured10_1.out == f"[{prefix_string.upper()}:3]: {text_string}\n"
+    assert captured10_0.out == f"[{prefix_string.upper()}:10]: {text_string}\n"
+    assert captured10_1.out == f"[{prefix_string.upper()}:11]: {text_string}\n"
     assert (
         captured100_0.out == f"[{prefix_string.upper()}:100]: {text_string}\n"
     )
-    assert captured0_2.out == f"[{prefix_string.upper()}:4]: {text_string}\n"
-    assert captured20_0.out == f"[{prefix_string.upper()}:20]: {text_string}\n"
+    assert (
+        captured100_1.out == f"[{prefix_string.upper()}:101]: {text_string}\n"
+    )
+    assert (
+        captured200_0.out == f"[{prefix_string.upper()}:200]: {text_string}\n"
+    )
+    assert (
+        captured200_1.out == f"[{prefix_string.upper()}:201]: {text_string}\n"
+    )

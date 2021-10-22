@@ -9,8 +9,8 @@ from click import echo
 from confprint import _exceptions, err_print
 
 
-global_count: Counter = Counter(n=-1)
-global_counter_start: int = -1
+global_count: Counter = Counter(n=-1, l=-1)
+# global_counter_start: int = -1
 
 
 def prefix_printer(
@@ -22,7 +22,6 @@ def prefix_printer(
     frame_right: str = "]",
     counter_start: int = -1,
     global_counter: bool = False,
-    global_redefine: bool = False,
 ) -> Callable[[str], None]:
     """
     Prefix printer is function factory for prefixing text.
@@ -39,7 +38,6 @@ def prefix_printer(
         frame_right (str, optional): The right frame. Defaults to "]".
         counter_start (int, optional): The counter start value. Defaults to -1.
         global_counter (bool, optional): If True, the counter will be global.
-        global_redefine (bool, optional): If True, the counter will be
 
     Raises:
         _exceptions.PropertyError: Raised both stderr and click are True.
@@ -48,23 +46,35 @@ def prefix_printer(
         Callable[[str], None]:
             A function that prints text prefixed with the prefix.
     """
-    global global_counter_start
+    # global global_counter_start
+
+    # local_count: Counter = Counter(n=-1)
+
+    # # Sets the type of counter to use.
+    # if global_counter and global_counter_start == -1:
+    #     count = global_count
+    #     global_counter_start = counter_start
+    # elif global_counter and global_counter_start > -1:
+    #     count = global_count
+    #     counter_start = global_counter_start
+    # else:
+    #     count = local_count
+
+    # # Enables the counter if a counter start value is given.
+    # if counter_start > -1:
+    #     count["n"] = counter_start
 
     local_count: Counter = Counter(n=-1)
 
-    # Sets the type of counter to use.
-    if global_counter and global_counter_start == -1 or global_redefine:
-        count = global_count
-        global_counter_start = counter_start
-    elif global_counter and global_counter_start > -1:
-        count = global_count
-        counter_start = global_counter_start
-    else:
+    if counter_start > -1 and not global_counter:
+        local_count["n"] = counter_start
         count = local_count
-
-    # Enables the counter if a counter start value is given.
-    if counter_start > -1:
-        count["n"] = counter_start
+    elif counter_start == -1 and global_counter:
+        global_count["n"] = global_count["l"]
+        count = global_count
+    elif counter_start > -1 and global_counter:
+        global_count["n"] = global_count["l"] = counter_start
+        count = global_count
 
     def prefixed_printer(text: str = "", prefix: str = prefix) -> None:
         """
@@ -80,7 +90,14 @@ def prefix_printer(
         if upper and isinstance(prefix, str):
             prefix = prefix.upper()
 
-        if counter_start > -1:
+        if counter_start > -1 and not global_counter:
+            prefix = f"{frame_left}{prefix}:{count['n']}{frame_right}"
+            count["n"] += 1
+        elif counter_start > -1 and global_counter:
+            prefix = f"{frame_left}{prefix}:{count['n']}{frame_right}"
+            count["n"] += 1
+            global_count["l"] += 1
+        elif counter_start == -1 and global_counter:
             prefix = f"{frame_left}{prefix}:{count['n']}{frame_right}"
             count["n"] += 1
         else:
