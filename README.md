@@ -100,10 +100,10 @@ poetry add confprint
 from confprint import prefix_printer
 
 p_test1 = prefix_printer(prefix="test1")
-p_test1("Preset\n")
+p_test1("Please read all the lines to understand the usage.\n")
 
 p_test2 = prefix_printer(prefix="test2", upper=False)
-p_test2("unaltered text\n")
+p_test2("unaltered text, a.k.a .upper() not applied to the string.\n")
 
 p_test3 = prefix_printer(prefix="test3", stderr=True)
 p_test3("using sys.stderr.write as the print function\n")
@@ -114,10 +114,26 @@ p_test4("using click.echo as the print function\n")
 p_test5 = prefix_printer(prefix="test5", frame_left="( ", frame_right=" )")
 p_test5("using custom frame characters\n")
 
-p_test6 = prefix_printer(prefix="test6", counter_start=1)
+p_test6 = prefix_printer(prefix="test6", counter_start=0)
 p_test6("By defining a 'counter_start',")
 p_test6("a counter number will be appended")
 p_test6("to the prefix.\n")
+
+p_test7 = prefix_printer(prefix="test7", counter_start=1)
+p_test7("Different prefix printers can have different counters.")
+p_test6("As you see in this example,")
+p_test7("they have do not interfere with each other.\n")
+
+p_test8 = prefix_printer(prefix="test8", counter_start=10, global_counter=True)
+p_test8("Global counters can also be set.")
+p_test8("However, if any prefix printers has already been defined,")
+p_test8("you have to set global_redefine to True.")
+p_test6("But as you can see here,")
+p_test6("global counters still doesn't interfere with local counters.\n")
+
+p_test9 = prefix_printer(prefix="test9", global_counter=True)
+p_test9("New prefix_printers will pick up the last global count, which can")
+p_test9("be handy with different prefixes should be used with sequential counting.\n")
 
 p_test1(
     """With new lines in strings the text is converted
@@ -132,23 +148,41 @@ p_test1(
 
 p_done = prefix_printer(prefix="done")
 p_done()
+
+print() # adding a blank line.
+p_bonus = prefix_printer(prefix="bonus")
+variable_name = "Using a 'f-string' with an added '=' can be handy when debugging."
+p_bonus(f"{variable_name = } ")
 ```
 
 ```
-[TEST1]: Preset
-
-[test2]: unaltered text
+[TEST1]: Please read all the lines to understand the usage.
+         
+[test2]: unaltered text, a.k.a .upper() not applied to the string.
+         
+[TEST4]: using click.echo as the print function
 
 [TEST3]: using sys.stderr.write as the print function
 
-[TEST4]: using click.echo as the print function
-         
 ( TEST5 ): using custom frame characters
            
-[TEST6:1]: By defining a 'counter_start',
-[TEST6:2]: a counter number will be apended
-[TEST6:3]: to the prefix.
+[TEST6:0]: By defining a 'counter_start',
+[TEST6:1]: a counter number will be appended
+[TEST6:2]: to the prefix.
            
+[TEST7:1]: Different prefix printers can have different counters.
+[TEST6:3]: As you see in this example,
+[TEST7:2]: they have do not interfere with each other.
+           
+[TEST8:10]: Global counters can also be set.
+[TEST8:11]: However, if any prefix printers has already been defined,
+[TEST8:12]: you have to set global_redefine to True.
+[TEST6:4]: But as you can see here,
+[TEST6:5]: global counters still doesn't interfere with local counters.
+           
+[TEST9:13]: New prefix_printers will pick up the last global count, which can
+[TEST9:14]: be handy with different prefixes should be used with sequential counting.
+            
 [TEST1]: With new lines in strings the text is converted
          to multiline, then all but the first are
          indented to line up with the rest.
@@ -157,6 +191,8 @@ p_done()
          And as you can see, this is also a multiline text.
          
 [DONE]
+
+[BONUS]: variable_name = "Using a 'f-string' with an added '=' can be handy when debugging." 
 ```
 
 
