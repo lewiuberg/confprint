@@ -199,6 +199,10 @@ def test_prefix_printer_global_counter(capsys, text_string, prefix_string):
     pl_test200(text_string)  # counter: 201
     captured200_1 = capsys.readouterr()
 
+    pg_test20 = prefix_printer(prefix_string, global_counter=True)
+    pg_test20(text_string)  # counter: 12
+    captured20_0 = capsys.readouterr()
+
     assert captured0_0.out == f"[{prefix_string.upper()}:0]: {text_string}\n"
     assert captured0_1.out == f"[{prefix_string.upper()}:1]: {text_string}\n"
     assert captured10_0.out == f"[{prefix_string.upper()}:10]: {text_string}\n"
@@ -215,3 +219,4 @@ def test_prefix_printer_global_counter(capsys, text_string, prefix_string):
     assert (
         captured200_1.out == f"[{prefix_string.upper()}:201]: {text_string}\n"
     )
+    assert captured20_0.out == f"[{prefix_string.upper()}:12]: {text_string}\n"
