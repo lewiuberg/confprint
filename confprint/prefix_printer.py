@@ -10,7 +10,6 @@ from confprint import _exceptions, err_print
 
 
 global_count: Counter = Counter(n=-1, l=-1)
-# global_counter_start: int = -1
 
 
 def prefix_printer(
@@ -46,23 +45,6 @@ def prefix_printer(
         Callable[[str], None]:
             A function that prints text prefixed with the prefix.
     """
-    # global global_counter_start
-
-    # local_count: Counter = Counter(n=-1)
-
-    # # Sets the type of counter to use.
-    # if global_counter and global_counter_start == -1:
-    #     count = global_count
-    #     global_counter_start = counter_start
-    # elif global_counter and global_counter_start > -1:
-    #     count = global_count
-    #     counter_start = global_counter_start
-    # else:
-    #     count = local_count
-
-    # # Enables the counter if a counter start value is given.
-    # if counter_start > -1:
-    #     count["n"] = counter_start
 
     local_count: Counter = Counter(n=-1)
 
