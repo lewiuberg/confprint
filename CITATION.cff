@@ -5,6 +5,7 @@ abstract: "Python printer configurations."
 authors:
   - family-names: "Lie Uberg"
     given-names: Lewi
+    orcid: "https://orcid.org/0000-0001-8839-0960"
   - family-names: "Hjelle"
     given-names: Geir Arne
 version: 0.3.1 # This is automatically set using the bumpversion tool.
