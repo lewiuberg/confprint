@@ -14,7 +14,7 @@ global_count: Counter = Counter(n=-1, l=-1)
 
 def prefix_printer(
     prefix: Any,
-    whitespace: int = 1,
+    whitespace: int = 0,
     stderr: bool = False,
     click: bool = False,
     upper: bool = True,
@@ -111,6 +111,6 @@ def prefix_printer(
         elif not text:
             print_func(f"{prefix}")  # type: ignore # mypy bug
         else:
-            print_func(f"{prefix}:{' ' * whitespace}{text}")  # type: ignore # mypy bug
+            print_func(f"{prefix}: {' ' * whitespace}{text}")  # type: ignore # mypy bug
 
     return prefixed_printer
