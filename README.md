@@ -54,7 +54,7 @@ Please see [CITATION.cff](CITATION.cff) for the full citation information.
 ### APA
 
 ```apa
-Lie Uberg, L., & Hjelle, G. A. (2021). confprint (Version 0.3.1) [Computer software]. https://github.com/lewiuberg/confprint
+Lie Uberg, L., & Hjelle, G. A. (2021). confprint (Version 0.4.0) [Computer software]. https://github.com/lewiuberg/confprint
 ```
 
 ### BibTex
@@ -66,7 +66,7 @@ license = {MIT},
 month = {10},
 title = {{confprint}},
 url = {https://github.com/lewiuberg/confprint},
-version = {0.3.1},
+version = {0.4.0},
 year = {2021}
 }
 ```
