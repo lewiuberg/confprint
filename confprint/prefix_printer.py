@@ -103,7 +103,7 @@ def prefix_printer(
         if "\n" in text:
             lines = text.split("\n")
             first_line_len = len(lines[0])
-            lines[0] = f"{prefix}: {lines[0]}"
+            lines[0] = f"{prefix}: {' ' * whitespace}{lines[0]}"
             indent_len = len(lines[0]) - first_line_len
             print_func(lines[0])  # type: ignore
             [print_func((" " * indent_len) + line) for line in lines[1:]]  # type: ignore # mypy bug # noqa: E501
