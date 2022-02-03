@@ -122,7 +122,7 @@ also multiline text.""",
 )
 def test_prefix_printer_multiline(capsys, text, prefix_string):
     """Test if prefix_printer is using multiline correctly."""
-    p_test = prefix_printer(prefix_string)
+    p_test = prefix_printer(prefix_string, whitespace=0)
     p_test(text)
     captured = capsys.readouterr()
     indented_text = text.replace(
