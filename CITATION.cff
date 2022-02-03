@@ -8,7 +8,7 @@ authors:
     orcid: "https://orcid.org/0000-0001-8839-0960"
   - family-names: "Hjelle"
     given-names: Geir Arne
-version: 0.4.3 # This is automatically set using the bumpversion tool.
+version: 0.4.4 # This is automatically set using the bumpversion tool.
 date-released: 2021-10-16
 repository-code: "https://github.com/lewiuberg/confprint"
 license: MIT
