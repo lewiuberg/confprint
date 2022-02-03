@@ -1,5 +1,7 @@
 # import sys
 
+from sys import prefix
+
 import pytest
 
 from confprint import _exceptions, err_print, prefix_printer
@@ -30,6 +32,14 @@ def test_prefix_printer_no_text(capsys, prefix_string):
     p_test()
     captured = capsys.readouterr()
     assert captured.out == f"[{prefix_string.upper()}]\n"
+
+
+def test_prefix_printer_prefix_whitespace(prefix_string, capsys, text_string):
+    """Test if prefix_printer has the correct prefix."""
+    p_test = prefix_printer(prefix=f"{prefix_string}", whitespace=4)
+    p_test(text_string)
+    captured = capsys.readouterr()
+    assert captured.out == f"[{prefix_string.upper()}]:    {text_string}\n"
 
 
 @pytest.mark.parametrize(
