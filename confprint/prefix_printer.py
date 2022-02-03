@@ -14,6 +14,7 @@ global_count: Counter = Counter(n=-1, l=-1)
 
 def prefix_printer(
     prefix: Any,
+    whitespace: int = 1,
     stderr: bool = False,
     click: bool = False,
     upper: bool = True,
@@ -27,6 +28,7 @@ def prefix_printer(
 
     Args:
         prefix (Any): The prefix to use.
+        whitespace (int, optional): The number of whitespaces to use. Defaults to 1.
         stderr (bool, optional):
             If True, the printer will print to sys.stderr instead of sys.stdout
             Defaults to False.
@@ -109,6 +111,6 @@ def prefix_printer(
         elif not text:
             print_func(f"{prefix}")  # type: ignore # mypy bug
         else:
-            print_func(f"{prefix}: {text}")  # type: ignore # mypy bug
+            print_func(f"{prefix}:{' ' * whitespace}{text}")  # type: ignore # mypy bug
 
     return prefixed_printer
