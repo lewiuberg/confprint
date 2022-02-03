@@ -39,7 +39,7 @@ def test_prefix_printer_prefix_whitespace(prefix_string, capsys, text_string):
     p_test = prefix_printer(prefix=f"{prefix_string}", whitespace=4)
     p_test(text_string)
     captured = capsys.readouterr()
-    assert captured.out == f"[{prefix_string.upper()}]:    {text_string}\n"
+    assert captured.out == f"[{prefix_string.upper()}]:     {text_string}\n"
 
 
 @pytest.mark.parametrize(
