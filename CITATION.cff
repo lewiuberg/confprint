@@ -12,7 +12,7 @@ date-released: 2021-10-16
 repository-code: "https://github.com/lewiuberg/confprint"
 license: MIT
 keywords:
-    - "print"
-    - "printer configurations"
-    - "prefix"
-    - "stderr"
+  - "print"
+  - "printer configurations"
+  - "prefix"
+  - "stderr"
