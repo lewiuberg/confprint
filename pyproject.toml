@@ -28,6 +28,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.8"
 click = "7.1.2"
+colorama = "^0.4.4"
 
 [tool.poetry.dev-dependencies]
 peodd = "^0.2.2"  # Usage: poetry run peodd -o requirements-dev.txt
