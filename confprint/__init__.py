@@ -6,4 +6,4 @@ from confprint.prefix_printer import prefix_printer  # noqa
 
 # This is automatically set using the bumpversion tool.
 # Version of the confprint package
-__version__ = "0.4.5"
+__version__ = "0.5.0"
